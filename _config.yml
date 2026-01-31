@@ -1,2 +1,39 @@
-name: Anastasiia Prokhorova
+# Site Settings
+title: Anastasiia Prokhorova
+description: Data Scientist & ML Engineer | MSc Machine Learning at LSE
+author: Anastasiia Prokhorova
+email: aprokhorova67@gmail.com
+url: "https://anastation67.github.io"
+baseurl: ""
+
+# Social Links
+github_username: Anastation67
+linkedin_username: anastasiia-prokhorova
+
+# Build Settings
 markdown: kramdown
+highlighter: rouge
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+  - LICENSE
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Default layout
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Permalinks
+permalink: pretty

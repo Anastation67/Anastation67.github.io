@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anastasiia Prokhorova — Data Science Portfolio</title>
-    <meta name="description" content="Data Science Professional | MSc Data Science at LSE">
+    <meta name="description" content="Data Science Graduate | MSc Data Science at LSE">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
@@ -20,45 +17,29 @@
     --bg-secondary: #12121a;
     --bg-card: #1a1a24;
     --bg-card-hover: #222230;
-    
     --text-primary: #f0f0f5;
     --text-secondary: #a0a0b0;
     --text-muted: #6a6a7a;
-    
     --accent-primary: #7c6aef;
     --accent-secondary: #a78bfa;
     --accent-glow: rgba(124, 106, 239, 0.3);
-    
     --gradient-accent: linear-gradient(135deg, #7c6aef 0%, #a78bfa 50%, #c4b5fd 100%);
     --gradient-dark: linear-gradient(180deg, #0a0a0f 0%, #12121a 100%);
-    
     --border-color: rgba(160, 160, 176, 0.1);
     --border-accent: rgba(124, 106, 239, 0.3);
-    
     --font-main: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-    
     --space-xs: 0.5rem;
     --space-sm: 1rem;
     --space-md: 1.5rem;
     --space-lg: 2.5rem;
     --space-xl: 4rem;
-    
     --transition-fast: 0.15s ease;
     --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-    font-size: 16px;
-}
-
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
 body {
     font-family: var(--font-main);
     background: var(--bg-primary);
@@ -66,1493 +47,553 @@ body {
     line-height: 1.7;
     min-height: 100vh;
     overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
 }
 
-.grain-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-}
+a { color: var(--accent-primary); text-decoration: none; transition: color var(--transition-fast); }
+a:hover { color: var(--accent-secondary); }
+::selection { background: var(--accent-primary); color: var(--text-primary); }
 
-a {
-    color: var(--accent-primary);
-    text-decoration: none;
-    transition: color var(--transition-fast);
-    cursor: pointer;
-}
-
-a:hover {
-    color: var(--accent-secondary);
-}
-
-::selection {
-    background: var(--accent-primary);
-    color: var(--text-primary);
-}
-
-/* Navigation */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
     padding: var(--space-sm) 0;
-    background: rgba(10, 10, 15, 0.9);
+    background: rgba(10, 10, 15, 0.95);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-color);
 }
-
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--space-md);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    max-width: 1200px; margin: 0 auto; padding: 0 var(--space-md);
+    display: flex; justify-content: space-between; align-items: center;
 }
-
 .nav-logo {
-    font-family: var(--font-mono);
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: var(--text-primary);
-    letter-spacing: 0.05em;
+    font-family: var(--font-mono); font-size: 1.25rem; font-weight: 500;
+    color: var(--text-primary); letter-spacing: 0.05em;
 }
-
-.logo-bracket {
-    color: var(--accent-primary);
-}
-
-.nav-links {
-    display: flex;
-    gap: var(--space-lg);
-    list-style: none;
-}
-
+.logo-bracket { color: var(--accent-primary); }
+.nav-links { display: flex; gap: var(--space-lg); list-style: none; }
 .nav-links a {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    padding: var(--space-xs) 0;
-    position: relative;
+    color: var(--text-secondary); font-size: 0.9rem; font-weight: 500;
+    padding: var(--space-xs) 0; position: relative;
 }
-
 .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--gradient-accent);
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 2px; background: var(--gradient-accent);
     transition: width var(--transition-base);
 }
+.nav-links a:hover { color: var(--text-primary); }
+.nav-links a:hover::after { width: 100%; }
 
-.nav-links a:hover,
-.nav-links a.active {
-    color: var(--text-primary);
-}
+.main-content { padding-top: 80px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 var(--space-md); }
 
-.nav-links a:hover::after,
-.nav-links a.active::after {
-    width: 100%;
-}
-
-.nav-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: var(--space-xs);
-}
-
-.nav-toggle span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--text-primary);
-    transition: var(--transition-base);
-}
-
-/* Main Content */
-.main-content {
-    padding-top: 80px;
-    min-height: calc(100vh - 160px);
-}
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 var(--space-md);
-}
-
-/* Pages */
-.page {
-    display: none;
-    animation: fadeIn 0.4s ease;
-}
-
-.page.active {
-    display: block;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Hero Section */
 .hero {
-    min-height: calc(100vh - 80px);
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
+    min-height: calc(100vh - 80px); display: flex; align-items: center;
+    position: relative; overflow: hidden;
 }
-
 .hero::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 800px;
-    height: 800px;
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 800px; height: 800px;
     background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-    pointer-events: none;
     animation: pulse 8s ease-in-out infinite;
 }
-
 @keyframes pulse {
     0%, 100% { opacity: 0.3; transform: scale(1); }
     50% { opacity: 0.5; transform: scale(1.1); }
 }
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-}
-
+.hero-content { position: relative; z-index: 1; }
 .hero-greeting {
-    font-family: var(--font-mono);
-    font-size: 1rem;
-    color: var(--accent-primary);
-    margin-bottom: var(--space-sm);
-    animation: fadeInUp 0.6s ease forwards 0.2s;
-    opacity: 0;
+    font-family: var(--font-mono); font-size: 1rem;
+    color: var(--accent-primary); margin-bottom: var(--space-sm);
 }
-
 .hero-name {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 600;
-    line-height: 1.1;
-    margin-bottom: var(--space-md);
-    animation: fadeInUp 0.6s ease forwards 0.4s;
-    opacity: 0;
+    font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 600;
+    line-height: 1.1; margin-bottom: var(--space-md);
 }
-
-.hero-name .gradient-text {
+.gradient-text {
     background: var(--gradient-accent);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
-
 .hero-tagline {
-    font-size: clamp(1.1rem, 2vw, 1.35rem);
-    color: var(--text-secondary);
-    max-width: 650px;
-    margin-bottom: var(--space-lg);
-    animation: fadeInUp 0.6s ease forwards 0.6s;
-    opacity: 0;
+    font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--text-secondary);
+    max-width: 650px; margin-bottom: var(--space-lg);
 }
+.hero-cta { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
 
-.hero-cta {
-    display: flex;
-    gap: var(--space-sm);
-    flex-wrap: wrap;
-    animation: fadeInUp 0.6s ease forwards 0.8s;
-    opacity: 0;
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Buttons */
 .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
-    padding: 0.875rem 1.75rem;
-    font-size: 0.9rem;
-    font-weight: 500;
-    border-radius: 8px;
-    transition: all var(--transition-base);
-    cursor: pointer;
-    border: none;
+    display: inline-flex; align-items: center; gap: var(--space-xs);
+    padding: 0.875rem 1.75rem; font-size: 0.9rem; font-weight: 500;
+    border-radius: 8px; transition: all var(--transition-base); border: none;
 }
-
-.btn-primary {
-    background: var(--gradient-accent);
-    color: var(--bg-primary);
-}
-
+.btn-primary { background: var(--gradient-accent); color: var(--bg-primary); }
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px var(--accent-glow);
+    transform: translateY(-2px); box-shadow: 0 10px 30px var(--accent-glow);
     color: var(--bg-primary);
 }
-
 .btn-secondary {
-    background: transparent;
-    color: var(--text-primary);
+    background: transparent; color: var(--text-primary);
     border: 1px solid var(--border-accent);
 }
-
 .btn-secondary:hover {
-    background: var(--bg-card);
-    border-color: var(--accent-primary);
-    color: var(--text-primary);
+    background: var(--bg-card); border-color: var(--accent-primary);
 }
 
-/* Section Styling */
-.section {
-    padding: var(--space-xl) 0;
-}
+.section { padding: var(--space-xl) 0; }
+.section-header { margin-bottom: var(--space-lg); }
+.section-title { font-size: 2rem; font-weight: 600; margin-bottom: var(--space-xs); }
+.section-subtitle { color: var(--text-secondary); font-size: 1.1rem; }
+.section-anchor { display: block; position: relative; top: -100px; visibility: hidden; }
 
-.section-header {
-    margin-bottom: var(--space-lg);
-}
-
-.section-title {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: var(--space-xs);
-}
-
-.section-subtitle {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-}
-
-/* Skills Section */
 .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--space-md);
 }
-
 .skill-category {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: var(--space-md);
-    transition: all var(--transition-base);
+    background: var(--bg-card); border: 1px solid var(--border-color);
+    border-radius: 16px; padding: var(--space-md); transition: all var(--transition-base);
 }
-
-.skill-category:hover {
-    border-color: var(--border-accent);
-    transform: translateY(-2px);
-}
-
+.skill-category:hover { border-color: var(--border-accent); transform: translateY(-2px); }
 .skill-category h3 {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--accent-secondary);
-    margin-bottom: var(--space-sm);
-    font-family: var(--font-mono);
+    font-size: 1rem; font-weight: 500; color: var(--accent-secondary);
+    margin-bottom: var(--space-sm); font-family: var(--font-mono);
 }
-
-.skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-xs);
-}
-
+.skill-tags { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
 .skill-tag {
-    background: rgba(124, 106, 239, 0.1);
-    color: var(--text-secondary);
-    padding: 0.375rem 0.875rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    border: 1px solid var(--border-color);
-    transition: all var(--transition-fast);
+    background: rgba(124, 106, 239, 0.1); color: var(--text-secondary);
+    padding: 0.375rem 0.875rem; border-radius: 20px; font-size: 0.85rem;
+    border: 1px solid var(--border-color); transition: all var(--transition-fast);
 }
-
 .skill-tag:hover {
-    background: rgba(124, 106, 239, 0.2);
-    border-color: var(--border-accent);
+    background: rgba(124, 106, 239, 0.2); border-color: var(--border-accent);
     color: var(--text-primary);
 }
 
-/* Cards */
 .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: var(--space-md);
 }
-
 .card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: var(--space-md);
-    transition: all var(--transition-base);
+    background: var(--bg-card); border: 1px solid var(--border-color);
+    border-radius: 16px; padding: var(--space-md); transition: all var(--transition-base);
 }
+.card:hover { background: var(--bg-card-hover); border-color: var(--border-accent); transform: translateY(-4px); }
 
-.card:hover {
-    background: var(--bg-card-hover);
-    border-color: var(--border-accent);
-    transform: translateY(-4px);
-}
-
-/* Projects */
 .project-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: all var(--transition-base);
+    background: var(--bg-card); border: 1px solid var(--border-color);
+    border-radius: 16px; overflow: hidden; transition: all var(--transition-base);
 }
-
 .project-card:hover {
-    border-color: var(--border-accent);
-    transform: translateY(-4px);
+    border-color: var(--border-accent); transform: translateY(-4px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
-
 .project-image {
-    width: 100%;
-    height: 180px;
-    background: var(--gradient-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    color: var(--accent-primary);
+    width: 100%; height: 180px; background: var(--gradient-dark);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem; color: var(--accent-primary);
 }
-
-.project-content {
-    padding: var(--space-md);
-}
-
-.project-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: var(--space-xs);
-}
-
-.project-description {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    margin-bottom: var(--space-sm);
-}
-
-.project-tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-xs);
-    margin-bottom: var(--space-sm);
-}
-
+.project-content { padding: var(--space-md); }
+.project-title { font-size: 1.2rem; font-weight: 600; margin-bottom: var(--space-xs); }
+.project-description { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: var(--space-sm); }
+.project-tech { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin-bottom: var(--space-sm); }
 .project-tech span {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--accent-secondary);
-    background: rgba(124, 106, 239, 0.1);
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
+    font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-secondary);
+    background: rgba(124, 106, 239, 0.1); padding: 0.25rem 0.5rem; border-radius: 4px;
 }
+.project-links a { color: var(--text-muted); margin-right: var(--space-sm); }
+.project-links a:hover { color: var(--accent-primary); }
 
-.project-links a {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    transition: color var(--transition-fast);
-    margin-right: var(--space-sm);
-}
-
-.project-links a:hover {
-    color: var(--accent-primary);
-}
-
-/* Timeline */
-.timeline {
-    position: relative;
-    padding-left: var(--space-lg);
-}
-
+.timeline { position: relative; padding-left: var(--space-lg); }
 .timeline::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--accent-primary), transparent);
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 2px; background: linear-gradient(to bottom, var(--accent-primary), transparent);
 }
-
-.timeline-item {
-    position: relative;
-    padding-bottom: var(--space-lg);
-}
-
-.timeline-item:last-child {
-    padding-bottom: 0;
-}
-
+.timeline-item { position: relative; padding-bottom: var(--space-lg); }
+.timeline-item:last-child { padding-bottom: 0; }
 .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: calc(-1 * var(--space-lg) - 5px);
-    top: 8px;
-    width: 12px;
-    height: 12px;
-    background: var(--accent-primary);
-    border-radius: 50%;
-    box-shadow: 0 0 20px var(--accent-glow);
+    content: ''; position: absolute; left: calc(-1 * var(--space-lg) - 5px); top: 8px;
+    width: 12px; height: 12px; background: var(--accent-primary);
+    border-radius: 50%; box-shadow: 0 0 20px var(--accent-glow);
 }
+.timeline-date { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-secondary); margin-bottom: var(--space-xs); }
+.timeline-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.25rem; }
+.timeline-subtitle { color: var(--text-secondary); margin-bottom: var(--space-sm); }
+.timeline-description { color: var(--text-secondary); font-size: 0.95rem; }
+.timeline-description ul { margin-top: var(--space-xs); padding-left: var(--space-md); }
+.timeline-description li { margin-bottom: 0.35rem; }
 
-.timeline-date {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--accent-secondary);
-    margin-bottom: var(--space-xs);
-}
-
-.timeline-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-}
-
-.timeline-subtitle {
-    color: var(--text-secondary);
-    margin-bottom: var(--space-sm);
-}
-
-.timeline-description {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-}
-
-.timeline-description ul {
-    margin-top: var(--space-xs);
-    padding-left: var(--space-md);
-}
-
-.timeline-description li {
-    margin-bottom: 0.25rem;
-}
-
-/* About Page */
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: var(--space-xl);
-    align-items: start;
-}
-
+.about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: var(--space-xl); align-items: start; }
 .about-image-placeholder {
-    width: 100%;
-    max-width: 320px;
-    aspect-ratio: 1;
-    border-radius: 20px;
-    background: var(--bg-card);
-    border: 2px solid var(--border-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 5rem;
-    color: var(--accent-primary);
+    width: 100%; max-width: 320px; aspect-ratio: 1; border-radius: 20px;
+    background: var(--bg-card); border: 2px solid var(--border-color);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 5rem; color: var(--accent-primary);
 }
-
-.about-content h2 {
-    font-size: 2rem;
-    margin-bottom: var(--space-md);
-}
-
-.about-content p {
-    color: var(--text-secondary);
-    margin-bottom: var(--space-sm);
-    font-size: 1.05rem;
-}
-
-.about-content .highlight {
-    color: var(--text-primary);
-    font-weight: 500;
-}
-
-/* CV Page */
-.cv-section {
-    margin-bottom: var(--space-xl);
-}
+.about-content h2 { font-size: 2rem; margin-bottom: var(--space-md); }
+.about-content p { color: var(--text-secondary); margin-bottom: var(--space-sm); font-size: 1.05rem; }
+.about-content .highlight { color: var(--text-primary); font-weight: 500; }
 
 .cv-section-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: var(--space-md);
-    padding-bottom: var(--space-xs);
-    border-bottom: 2px solid var(--border-accent);
+    font-size: 1.5rem; font-weight: 600; margin-bottom: var(--space-md);
+    padding-bottom: var(--space-xs); border-bottom: 2px solid var(--border-accent);
     display: inline-block;
 }
-
-.cv-item {
-    margin-bottom: var(--space-lg);
-}
-
+.cv-item { margin-bottom: var(--space-lg); }
 .cv-item-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: var(--space-xs);
-    margin-bottom: var(--space-xs);
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: var(--space-xs); margin-bottom: var(--space-xs);
 }
+.cv-item-title { font-size: 1.1rem; font-weight: 600; }
+.cv-item-date { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-secondary); }
+.cv-item-subtitle { color: var(--text-secondary); margin-bottom: var(--space-xs); }
+.cv-item-description { color: var(--text-secondary); font-size: 0.95rem; }
+.cv-item-description ul { margin-top: var(--space-xs); padding-left: var(--space-md); }
+.cv-item-description li { margin-bottom: 0.35rem; }
 
-.cv-item-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-.cv-item-date {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--accent-secondary);
-}
-
-.cv-item-subtitle {
-    color: var(--text-secondary);
-    margin-bottom: var(--space-xs);
-}
-
-.cv-item-description {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-}
-
-.cv-item-description ul {
-    margin-top: var(--space-xs);
-    padding-left: var(--space-md);
-}
-
-.cv-item-description li {
-    margin-bottom: 0.35rem;
-}
-
-/* Footer */
 .footer {
-    padding: var(--space-lg) 0;
-    border-top: 1px solid var(--border-color);
+    padding: var(--space-lg) 0; border-top: 1px solid var(--border-color);
     background: var(--bg-secondary);
 }
-
 .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--space-md);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
+    max-width: 1200px; margin: 0 auto; padding: 0 var(--space-md);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: var(--space-sm);
 }
+.footer-links { display: flex; gap: var(--space-md); }
+.footer-links a { color: var(--text-muted); font-size: 1.25rem; }
+.footer-links a:hover { color: var(--accent-primary); }
+.footer-text { color: var(--text-muted); font-size: 0.9rem; }
 
-.footer-links {
-    display: flex;
-    gap: var(--space-md);
-}
-
-.footer-links a {
-    color: var(--text-muted);
-    font-size: 1.25rem;
-    transition: all var(--transition-fast);
-}
-
-.footer-links a:hover {
-    color: var(--accent-primary);
-    transform: translateY(-2px);
-}
-
-.footer-text {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
-/* Responsive */
 @media (max-width: 900px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    
-    .about-image-placeholder {
-        margin: 0 auto;
-    }
+    .about-grid { grid-template-columns: 1fr; text-align: center; }
+    .about-image-placeholder { margin: 0 auto; }
 }
-
 @media (max-width: 768px) {
-    .nav-links {
-        position: fixed;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: var(--bg-primary);
-        flex-direction: column;
-        padding: var(--space-md);
-        gap: var(--space-sm);
-        border-bottom: 1px solid var(--border-color);
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: all var(--transition-base);
-    }
-    
-    .nav-links.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    .nav-toggle {
-        display: flex;
-    }
-    
-    .nav-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    
-    .nav-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .nav-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
-    }
-    
-    .hero {
-        min-height: auto;
-        padding: var(--space-xl) 0;
-    }
-    
-    .hero::before {
-        width: 400px;
-        height: 400px;
-        top: -20%;
-        right: -30%;
-    }
-    
-    .hero-cta {
-        flex-direction: column;
-    }
-    
-    .btn {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .cv-item-header {
-        flex-direction: column;
-    }
-    
-    .card-grid {
-        grid-template-columns: 1fr;
-    }
+    .nav-links { gap: var(--space-md); }
+    .hero { min-height: auto; padding: var(--space-xl) 0; }
+    .hero-cta { flex-direction: column; }
+    .btn { width: 100%; justify-content: center; }
+    .cv-item-header { flex-direction: column; }
+    .card-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+    .nav-links { gap: var(--space-sm); font-size: 0.8rem; }
 }
     </style>
 </head>
 <body>
-    <div class="grain-overlay"></div>
-    
     <nav class="navbar">
         <div class="nav-container">
-            <a class="nav-logo" onclick="showPage('home')">
-                <span class="logo-bracket">[</span>AP<span class="logo-bracket">]</span>
-            </a>
+            <a href="#home" class="nav-logo"><span class="logo-bracket">[</span>AP<span class="logo-bracket">]</span></a>
             <ul class="nav-links">
-                <li><a onclick="showPage('home')" class="active" data-page="home">Home</a></li>
-                <li><a onclick="showPage('about')" data-page="about">About</a></li>
-                <li><a onclick="showPage('projects')" data-page="projects">Projects</a></li>
-                <li><a onclick="showPage('cv')" data-page="cv">CV</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#cv">CV</a></li>
             </ul>
-            <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </nav>
 
     <main class="main-content">
         
-        <!-- ==================== HOME PAGE ==================== -->
-        <div id="home" class="page active">
-            <section class="hero">
-                <div class="container">
-                    <div class="hero-content">
-                        <p class="hero-greeting">// Hello, World!</p>
-                        <h1 class="hero-name">
-                            I'm <span class="gradient-text">Anastasiia Prokhorova</span>
-                        </h1>
-                        <p class="hero-tagline">
-                            Data Science graduate with a strong foundation in ML, statistical modelling, 
-                            and hands-on project experience. Looking for entry-level opportunities in applied ML 
-                            where I can grow from academic projects to real-world model development. 
-                            MSc Data Science at LSE.
-                        </p>
-                        <div class="hero-cta">
-                            <a onclick="showPage('projects')" class="btn btn-primary">
-                                <i class="fas fa-rocket"></i> View Projects
-                            </a>
-                            <a onclick="showPage('cv')" class="btn btn-secondary">
-                                <i class="fas fa-file-alt"></i> View CV
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section">
-                <div class="container">
-                    <div class="section-header">
-                        <h2 class="section-title">Technical Skills</h2>
-                        <p class="section-subtitle">Technologies I work with</p>
-                    </div>
-                    
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h3>// Programming</h3>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Python</span>
-                                <span class="skill-tag">R</span>
-                                <span class="skill-tag">SQL (T-SQL)</span>
-                                <span class="skill-tag">VBA</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3>// ML & Deep Learning</h3>
-                            <div class="skill-tags">
-                                <span class="skill-tag">PyTorch</span>
-                                <span class="skill-tag">TensorFlow</span>
-                                <span class="skill-tag">Scikit-learn</span>
-                                <span class="skill-tag">Keras</span>
-                                <span class="skill-tag">NetworkX</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3>// Data & NLP</h3>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Pandas</span>
-                                <span class="skill-tag">NumPy</span>
-                                <span class="skill-tag">spaCy</span>
-                                <span class="skill-tag">Recommender Systems</span>
-                                <span class="skill-tag">Statistical Modelling</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <h3>// Tools</h3>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Tableau</span>
-                                <span class="skill-tag">GitLab</span>
-                                <span class="skill-tag">SSMS</span>
-                                <span class="skill-tag">Jupyter</span>
-                                <span class="skill-tag">Excel (Advanced)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section" style="background: var(--bg-secondary);">
-                <div class="container">
-                    <div class="section-header">
-                        <h2 class="section-title">Featured Projects</h2>
-                        <p class="section-subtitle">Recent work and experiments</p>
-                    </div>
-                    
-                    <div class="card-grid">
-                        <div class="project-card">
-                            <div class="project-image">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <div class="project-content">
-                                <h3 class="project-title">RAG Voice Assistant</h3>
-                                <p class="project-description">
-                                    Intelligent voice assistant using Retrieval-Augmented Generation 
-                                    for context-aware conversations. Built data labeling pipelines, 
-                                    dictionaries, prompts, and Q&A datasets.
-                                </p>
-                                <div class="project-tech">
-                                    <span>Python</span>
-                                    <span>NLP</span>
-                                    <span>BERT</span>
-                                    <span>RAG</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://github.com/Anastation67" target="_blank" title="View Code"><i class="fab fa-github"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-card">
-                            <div class="project-image">
-                                <i class="fas fa-city"></i>
-                            </div>
-                            <div class="project-content">
-                                <h3 class="project-title">Gentrification Prediction</h3>
-                                <p class="project-description">
-                                    Predicting cultural gentrification index using numerical, financial data 
-                                    and NLP analysis of resident reviews. Ongoing research project at LSE.
-                                </p>
-                                <div class="project-tech">
-                                    <span>Python</span>
-                                    <span>NLP</span>
-                                    <span>Statistical Modelling</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://github.com/Anastation67" target="_blank" title="View Code"><i class="fab fa-github"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-card">
-                            <div class="project-image">
-                                <i class="fas fa-film"></i>
-                            </div>
-                            <div class="project-content">
-                                <h3 class="project-title">Recommender System</h3>
-                                <p class="project-description">
-                                    Hybrid recommendation engine combining collaborative filtering 
-                                    and content-based approaches with deep learning techniques.
-                                </p>
-                                <div class="project-tech">
-                                    <span>Python</span>
-                                    <span>PyTorch</span>
-                                    <span>Deep Learning</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://github.com/Anastation67" target="_blank" title="View Code"><i class="fab fa-github"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="text-align: center; margin-top: var(--space-lg);">
-                        <a onclick="showPage('projects')" class="btn btn-secondary">
-                            View All Projects <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section">
-                <div class="container">
-                    <div class="section-header">
-                        <h2 class="section-title">Education</h2>
-                        <p class="section-subtitle">Academic background</p>
-                    </div>
-                    
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <span class="timeline-date">2024 — 2025</span>
-                            <h3 class="timeline-title">MSc Data Science</h3>
-                            <p class="timeline-subtitle">London School of Economics (LSE)</p>
-                            <p class="timeline-description">
-                                Advanced study of machine learning, statistical modelling, 
-                                and computational methods for data science.
-                            </p>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <span class="timeline-date">Sep 2021 — Aug 2024</span>
-                            <h3 class="timeline-title">BSc Data Science and Business Analytics</h3>
-                            <p class="timeline-subtitle">University of London</p>
-                            <p class="timeline-description">
-                                Dual degree programme combining quantitative methods with business applications.
-                            </p>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <span class="timeline-date">2020 — 2024</span>
-                            <h3 class="timeline-title">BSc Applied Mathematics and Information Science</h3>
-                            <p class="timeline-subtitle">Higher School of Economics (HSE), Moscow</p>
-                            <p class="timeline-description">
-                                Strong mathematical foundation in optimization, probability theory, 
-                                and computational mathematics.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- ==================== ABOUT PAGE ==================== -->
-        <div id="about" class="page">
-            <section class="section">
-                <div class="container">
-                    <div class="about-grid">
-                        <div>
-                            <div class="about-image-placeholder">
-                                <i class="fas fa-user"></i>
-                            </div>
-                        </div>
-                        
-                        <div class="about-content">
-                            <h2>About Me</h2>
-                            
-                            <p>
-                                Hi! I'm <span class="highlight">Anastasiia Prokhorova</span>, a Data Science 
-                                graduate based in <span class="highlight">London</span>.
-                            </p>
-                            
-                            <p>
-                                I'm currently pursuing my <span class="highlight">MSc in Data Science</span> 
-                                at the London School of Economics, building on a strong foundation from my dual 
-                                undergraduate degrees in Applied Mathematics (HSE Moscow) and Data Science & 
-                                Business Analytics (University of London).
-                            </p>
-                            
-                            <p>
-                                My experience combines <span class="highlight">technical expertise</span> in Python, SQL, 
-                                and deep learning frameworks with <span class="highlight">hands-on experience</span> 
-                                delivering data-driven solutions in banking and fintech. I've worked as an Analyst 
-                                at BCS Investment Bank, where I supported SQL databases, built Tableau dashboards, 
-                                and contributed to microservice development.
-                            </p>
-                            
-                            <p>
-                                I'm looking for <span class="highlight">graduate/entry-level opportunities in applied ML 
-                                and data science</span> where I can transition from academic projects to building models 
-                                that reach production. I have a solid foundation in ML theory and hands-on experience 
-                                from university projects (RAG systems, recommender systems, NLP), and I'm eager to learn 
-                                how this translates to real-world environments.
-                            </p>
-                            
-                            <p>
-                                I work best in <span class="highlight">collaborative teams</span> where I can learn from 
-                                experienced colleagues while contributing fresh perspectives. I'm excited by 
-                                <span class="highlight">variety</span> and the chance to tackle new challenges. 
-                                Based in London, eligible for the Graduate Visa.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section" style="background: var(--bg-secondary);">
-                <div class="container">
-                    <div class="section-header">
-                        <h2 class="section-title">What I Do</h2>
-                    </div>
-                    
-                    <div class="card-grid">
-                        <div class="card">
-                            <h3 style="color: var(--accent-secondary); margin-bottom: var(--space-sm);">
-                                <i class="fas fa-brain"></i> Machine Learning
-                            </h3>
-                            <p style="color: var(--text-secondary);">
-                                Building predictive models, recommender systems, and NLP solutions 
-                                using PyTorch, TensorFlow, and scikit-learn.
-                            </p>
-                        </div>
-                        
-                        <div class="card">
-                            <h3 style="color: var(--accent-secondary); margin-bottom: var(--space-sm);">
-                                <i class="fas fa-database"></i> Data Analytics
-                            </h3>
-                            <p style="color: var(--text-secondary);">
-                                SQL database management, data pipelines, and creating 
-                                interactive dashboards with Tableau for business insights.
-                            </p>
-                        </div>
-                        
-                        <div class="card">
-                            <h3 style="color: var(--accent-secondary); margin-bottom: var(--space-sm);">
-                                <i class="fas fa-chart-line"></i> Statistical Modelling
-                            </h3>
-                            <p style="color: var(--text-secondary);">
-                                Applying rigorous statistical methods to extract insights 
-                                from complex datasets across finance and business domains.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section">
-                <div class="container">
-                    <div class="section-header">
-                        <h2 class="section-title">Achievements & Activities</h2>
-                    </div>
-                    
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <span class="timeline-date">2024 — 2025</span>
-                            <h3 class="timeline-title">Teaching Assistant — ML & Deep Learning</h3>
-                            <p class="timeline-subtitle">HSE University</p>
-                            <p class="timeline-description">
-                                Supporting students in machine learning and deep learning coursework.
-                            </p>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <span class="timeline-date">2021 — 2024</span>
-                            <h3 class="timeline-title">Teaching Assistant — Mathematical Analysis</h3>
-                            <p class="timeline-subtitle">HSE University</p>
-                            <p class="timeline-description">
-                                Three years of experience helping students master mathematical fundamentals.
-                            </p>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <span class="timeline-date">2023</span>
-                            <h3 class="timeline-title">🥈 Gazprombank Case Championship</h3>
-                            <p class="timeline-subtitle">Second Place</p>
-                            <p class="timeline-description">
-                                Developed innovative data-driven solution for a complex business case, 
-                                demonstrating strong analytical and presentation skills.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section" style="background: var(--bg-secondary);">
-                <div class="container" style="text-align: center;">
-                    <h2 class="section-title">Let's Connect!</h2>
-                    <p style="color: var(--text-secondary); margin-bottom: var(--space-md); max-width: 500px; margin-left: auto; margin-right: auto;">
-                        I'm open to discussing data science opportunities, collaborations, 
-                        or just having a chat about ML and analytics.
+        <!-- HOME -->
+        <span id="home" class="section-anchor"></span>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <p class="hero-greeting">// Hello, World!</p>
+                    <h1 class="hero-name">I'm <span class="gradient-text">Anastasiia Prokhorova</span></h1>
+                    <p class="hero-tagline">
+                        Data Science graduate with a strong foundation in ML, statistical modelling, 
+                        and hands-on project experience. Looking for entry-level opportunities in applied ML 
+                        where I can grow from academic projects to real-world model development. 
+                        MSc Data Science at LSE.
                     </p>
-                    <div>
-                        <a href="/cdn-cgi/l/email-protection#0d7d7f626665627f627b6c6c636c7e796c7e64646c3d3c4d6a606c6461236e6260" class="btn btn-primary">
-                            <i class="fas fa-envelope"></i> Get in Touch
-                        </a>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary"><i class="fas fa-rocket"></i> View Projects</a>
+                        <a href="#cv" class="btn btn-secondary"><i class="fas fa-file-alt"></i> View CV</a>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
 
-        <!-- ==================== PROJECTS PAGE ==================== -->
-        <div id="projects" class="page">
-            <section class="section">
-                <div class="container">
-                    <div class="section-header">
-                        <h1 class="section-title">Projects</h1>
-                        <p class="section-subtitle">A selection of my work in ML, data science, and analytics</p>
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Technical Skills</h2>
+                    <p class="section-subtitle">Technologies I work with</p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>// Programming</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">R</span>
+                            <span class="skill-tag">SQL (T-SQL)</span>
+                            <span class="skill-tag">VBA</span>
+                        </div>
                     </div>
-                    
-                    <div class="card-grid">
-                        <div class="project-card">
-                            <div class="project-image">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <div class="project-content">
-                                <h3 class="project-title">RAG Voice Assistant</h3>
-                                <p class="project-description">
-                                    Built an intelligent voice assistant using Retrieval-Augmented Generation.
-                                    Developed data labeling pipelines, created dictionaries and prompts, 
-                                    assembled Q&A datasets. Implemented BERT multilingual baseline models.
-                                </p>
-                                <div class="project-tech">
-                                    <span>Python</span>
-                                    <span>BERT</span>
-                                    <span>NLP</span>
-                                    <span>RAG</span>
-                                    <span>spaCy</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://github.com/Anastation67" target="_blank"><i class="fab fa-github"></i></a>
-                                </div>
-                            </div>
+                    <div class="skill-category">
+                        <h3>// ML & Deep Learning</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">Scikit-learn</span>
+                            <span class="skill-tag">Keras</span>
+                            <span class="skill-tag">NetworkX</span>
                         </div>
-                        
-                        <div class="project-card">
-                            <div class="project-image">
-                                <i class="fas fa-city"></i>
-                            </div>
-                            <div class="project-content">
-                                <h3 class="project-title">Gentrification Index Prediction</h3>
-                                <p class="project-description">
-                                    Ongoing research project predicting cultural gentrification using 
-                                    numerical/financial data combined with NLP analysis of resident reviews.
-                                    Collaborative work with LSE colleagues.
-                                </p>
-                                <div class="project-tech">
-                                    <span>Python</span>
-                                    <span>NLP</span>
-                                    <span>Statistical Modelling</span>
-                                    <span>Data Mining</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://github.com/Anastation67" target="_blank"><i class="fab fa-github"></i></a>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>// Data & NLP</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">NumPy</span>
+                            <span class="skill-tag">spaCy</span>
+                            <span class="skill-tag">Recommender Systems</span>
                         </div>
-                        
-                        <div class="project-card">
-                            <div class="project-image">
-                                <i class="fas fa-film"></i>
-                            </div>
-                            <div class="project-content">
-                                <h3 class="project-title">Hybrid Recommender System</h3>
-                                <p class="project-description">
-                                    Recommendation engine combining collaborative filtering and 
-                                    content-based approaches. Implemented matrix factorization and 
-                                    neural collaborative filtering for improved accuracy.
-                                </p>
-                                <div class="project-tech">
-                                    <span>Python</span>
-                                    <span>PyTorch</span>
-                                    <span>Deep Learning</span>
-                                    <span>Matrix Factorization</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="https://github.com/Anastation67" target="_blank"><i class="fab fa-github"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-card">
-                            <div class="project-image">
-                                <i class="fas fa-server"></i>
-                            </div>
-                            <div class="project-content">
-                                <h3 class="project-title">Positioner Microservice</h3>
-                                <p class="project-description">
-                                    Contributed to microservice development at BCS Investment Bank.
-                                    Wrote business and functional requirements, worked with GitLab CI/CD,
-                                    tested API endpoints and data processing pipelines.
-                                </p>
-                                <div class="project-tech">
-                                    <span>GitLab</span>
-                                    <span>API</span>
-                                    <span>SQL</span>
-                                    <span>Business Analysis</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-card">
-                            <div class="project-image">
-                                <i class="fas fa-tachometer-alt"></i>
-                            </div>
-                            <div class="project-content">
-                                <h3 class="project-title">Treasury Analytics Dashboard</h3>
-                                <p class="project-description">
-                                    Built and maintained Tableau dashboard for treasury department,
-                                    connected to SQL Server databases. Provided real-time liquidity 
-                                    monitoring and reporting capabilities.
-                                </p>
-                                <div class="project-tech">
-                                    <span>Tableau</span>
-                                    <span>T-SQL</span>
-                                    <span>SSMS</span>
-                                    <span>Data Visualization</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-card">
-                            <div class="project-image">
-                                <i class="fas fa-shopping-cart"></i>
-                            </div>
-                            <div class="project-content">
-                                <h3 class="project-title">Consumer Behavior Analysis</h3>
-                                <p class="project-description">
-                                    Sber internship project analyzing consumer purchasing patterns.
-                                    Applied statistical methods to identify trends and segment 
-                                    customer behaviors for marketing insights.
-                                </p>
-                                <div class="project-tech">
-                                    <span>Python</span>
-                                    <span>Pandas</span>
-                                    <span>Statistical Analysis</span>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>// Tools</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Tableau</span>
+                            <span class="skill-tag">GitLab</span>
+                            <span class="skill-tag">SSMS</span>
+                            <span class="skill-tag">Jupyter</span>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="section" style="background: var(--bg-secondary);">
-                <div class="container" style="text-align: center;">
-                    <h2 class="section-title">Want to See More?</h2>
-                    <p style="color: var(--text-secondary); margin-bottom: var(--space-md); max-width: 500px; margin-left: auto; margin-right: auto;">
-                        Check out my GitHub for more projects, code samples, and contributions.
+        <section class="section" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Education</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-date">2024 — 2025</span>
+                        <h3 class="timeline-title">MSc Data Science</h3>
+                        <p class="timeline-subtitle">London School of Economics (LSE)</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">2021 — 2024</span>
+                        <h3 class="timeline-title">BSc Data Science and Business Analytics</h3>
+                        <p class="timeline-subtitle">University of London</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">2020 — 2024</span>
+                        <h3 class="timeline-title">BSc Applied Mathematics and Information Science</h3>
+                        <p class="timeline-subtitle">Higher School of Economics (HSE), Moscow</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <span id="about" class="section-anchor"></span>
+        <section class="section">
+            <div class="container">
+                <div class="about-grid">
+                    <div><div class="about-image-placeholder"><i class="fas fa-user"></i></div></div>
+                    <div class="about-content">
+                        <h2>About Me</h2>
+                        <p>Hi! I'm <span class="highlight">Anastasiia Prokhorova</span>, a Data Science graduate based in <span class="highlight">London</span>.</p>
+                        <p>I'm completing my <span class="highlight">MSc in Data Science</span> at LSE, with dual undergraduate degrees in Applied Mathematics (HSE Moscow) and Data Science & Business Analytics (University of London).</p>
+                        <p>I'm looking for <span class="highlight">graduate/entry-level opportunities in applied ML and data science</span> where I can transition from academic projects to building models that reach production. I have a solid foundation in ML theory and hands-on experience from university projects (RAG systems, recommender systems, NLP), and I'm eager to learn how this translates to real-world environments.</p>
+                        <p>I work best in <span class="highlight">collaborative teams</span> where I can learn from experienced colleagues while contributing fresh perspectives. I'm excited by <span class="highlight">variety</span> and the chance to tackle new challenges. Based in London, eligible for the Graduate Visa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header"><h2 class="section-title">What I'm Looking For</h2></div>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3 style="color: var(--accent-secondary); margin-bottom: var(--space-sm);"><i class="fas fa-brain"></i> Applied ML</h3>
+                        <p style="color: var(--text-secondary);">Building models that make it to production — not just research papers. Working with real data, iterating, and seeing results in practice.</p>
+                    </div>
+                    <div class="card">
+                        <h3 style="color: var(--accent-secondary); margin-bottom: var(--space-sm);"><i class="fas fa-users"></i> Team Collaboration</h3>
+                        <p style="color: var(--text-secondary);">Discussing approaches together, learning from experienced colleagues, and contributing to shared goals. Hybrid work is ideal.</p>
+                    </div>
+                    <div class="card">
+                        <h3 style="color: var(--accent-secondary); margin-bottom: var(--space-sm);"><i class="fas fa-random"></i> Variety & Growth</h3>
+                        <p style="color: var(--text-secondary);">New domains, new challenges, and the opportunity to learn things we haven't done before. Continuous learning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <span id="projects" class="section-anchor"></span>
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h1 class="section-title">Projects</h1>
+                    <p class="section-subtitle">Academic and personal projects in ML and data science</p>
+                </div>
+                <div class="card-grid">
+                    <div class="project-card">
+                        <div class="project-image"><i class="fas fa-robot"></i></div>
+                        <div class="project-content">
+                            <h3 class="project-title">RAG Voice Assistant</h3>
+                            <p class="project-description">Built an intelligent voice assistant using Retrieval-Augmented Generation. Developed data labeling pipelines, created dictionaries and prompts, assembled Q&A datasets. Implemented BERT multilingual baseline.</p>
+                            <div class="project-tech"><span>Python</span><span>BERT</span><span>NLP</span><span>RAG</span><span>spaCy</span></div>
+                            <div class="project-links"><a href="https://github.com/Anastation67" target="_blank"><i class="fab fa-github"></i> GitHub</a></div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"><i class="fas fa-city"></i></div>
+                        <div class="project-content">
+                            <h3 class="project-title">Gentrification Index Prediction</h3>
+                            <p class="project-description">Ongoing research project predicting cultural gentrification using numerical/financial data combined with NLP analysis of resident reviews. Collaborative work with LSE colleagues.</p>
+                            <div class="project-tech"><span>Python</span><span>NLP</span><span>Statistical Modelling</span></div>
+                            <div class="project-links"><a href="https://github.com/Anastation67" target="_blank"><i class="fab fa-github"></i> GitHub</a></div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"><i class="fas fa-film"></i></div>
+                        <div class="project-content">
+                            <h3 class="project-title">Hybrid Recommender System</h3>
+                            <p class="project-description">Recommendation engine combining collaborative filtering and content-based approaches. Implemented matrix factorization and neural collaborative filtering.</p>
+                            <div class="project-tech"><span>Python</span><span>PyTorch</span><span>Deep Learning</span></div>
+                            <div class="project-links"><a href="https://github.com/Anastation67" target="_blank"><i class="fab fa-github"></i> GitHub</a></div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"><i class="fas fa-server"></i></div>
+                        <div class="project-content">
+                            <h3 class="project-title">Positioner Microservice</h3>
+                            <p class="project-description">Contributed to microservice development at BCS Investment Bank. Wrote business and functional requirements, worked with GitLab CI/CD, tested API endpoints.</p>
+                            <div class="project-tech"><span>GitLab</span><span>API</span><span>SQL</span></div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="project-content">
+                            <h3 class="project-title">Treasury Analytics Dashboard</h3>
+                            <p class="project-description">Built and maintained Tableau dashboard for treasury department, connected to SQL Server databases. Real-time liquidity monitoring.</p>
+                            <div class="project-tech"><span>Tableau</span><span>T-SQL</span><span>SSMS</span></div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image"><i class="fas fa-shopping-cart"></i></div>
+                        <div class="project-content">
+                            <h3 class="project-title">Consumer Behavior Analysis</h3>
+                            <p class="project-description">Sber internship project analyzing consumer purchasing patterns. Applied statistical methods to identify trends and segment customer behaviors.</p>
+                            <div class="project-tech"><span>Python</span><span>Pandas</span><span>Statistical Analysis</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: var(--space-lg);">
+                    <a href="https://github.com/Anastation67" class="btn btn-primary" target="_blank"><i class="fab fa-github"></i> View GitHub Profile</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CV -->
+        <span id="cv" class="section-anchor"></span>
+        <section class="section" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header">
+                    <h1 class="section-title">Curriculum Vitae</h1>
+                    <p class="section-subtitle">Anastasiia Prokhorova — Data Science Graduate</p>
+                </div>
+                
+                <div style="margin-bottom: var(--space-xl);">
+                    <h2 class="cv-section-title"><i class="fas fa-user"></i> Professional Summary</h2>
+                    <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8;">
+                        Data Science graduate with a strong foundation in machine learning, statistical modelling, and hands-on project experience including RAG systems, recommender systems, and NLP applications. Combines technical expertise in Python, SQL, and deep learning frameworks with analytical experience from banking. Looking for entry-level opportunities in applied ML where I can transition from academic projects to building models that reach production. I thrive in collaborative team environments with diverse projects and the opportunity to learn from experienced colleagues.
                     </p>
-                    <div>
-                        <a href="https://github.com/Anastation67" class="btn btn-primary" target="_blank">
-                            <i class="fab fa-github"></i> View GitHub Profile
-                        </a>
+                </div>
+                
+                <div style="margin-bottom: var(--space-xl);">
+                    <h2 class="cv-section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+                    <div class="cv-item">
+                        <div class="cv-item-header"><h3 class="cv-item-title">MSc Data Science</h3><span class="cv-item-date">2024 — 2025</span></div>
+                        <p class="cv-item-subtitle">London School of Economics and Political Science (LSE)</p>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-item-header"><h3 class="cv-item-title">BSc Data Science and Business Analytics</h3><span class="cv-item-date">Sep 2021 — Aug 2024</span></div>
+                        <p class="cv-item-subtitle">University of London — Dual Degree Programme</p>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-item-header"><h3 class="cv-item-title">BSc Applied Mathematics and Information Science</h3><span class="cv-item-date">2020 — 2024</span></div>
+                        <p class="cv-item-subtitle">Higher School of Economics (HSE), Moscow</p>
                     </div>
                 </div>
-            </section>
-        </div>
-
-        <!-- ==================== CV PAGE ==================== -->
-        <div id="cv" class="page">
-            <section class="section">
-                <div class="container">
-                    <div class="section-header">
-                        <h1 class="section-title">Curriculum Vitae</h1>
-                        <p class="section-subtitle">Anastasiia Prokhorova — Data Science Graduate</p>
+                
+                <div style="margin-bottom: var(--space-xl);">
+                    <h2 class="cv-section-title"><i class="fas fa-briefcase"></i> Experience</h2>
+                    <div class="cv-item">
+                        <div class="cv-item-header"><h3 class="cv-item-title">Treasury Analyst — Short-Term Liquidity</h3><span class="cv-item-date">Jan 2025 — Oct 2025</span></div>
+                        <p class="cv-item-subtitle">BCS Investment Bank, Moscow</p>
+                        <div class="cv-item-description"><ul>
+                            <li>Maintained SQL database (T-SQL/SSMS): functions, stored procedures, queries</li>
+                            <li>Built Tableau dashboards for real-time liquidity monitoring</li>
+                            <li>Contributed to "Positioner" microservice: requirements, GitLab CI/CD, API testing</li>
+                        </ul></div>
                     </div>
-                    
-                    <!-- Professional Summary -->
-                    <div class="cv-section">
-                        <h2 class="cv-section-title">
-                            <i class="fas fa-user"></i> Professional Summary
-                        </h2>
-                        <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8;">
-                            Data Science graduate with a strong foundation in machine learning, statistical modelling, 
-                            and hands-on project experience including RAG systems, recommender systems, and NLP applications. 
-                            Combines technical expertise in Python, SQL, and deep learning frameworks with analytical experience 
-                            from banking. Looking for entry-level opportunities in applied ML where I can transition from 
-                            academic projects to building models that reach production. I thrive in collaborative team 
-                            environments with diverse projects and the opportunity to learn from experienced colleagues.
-                        </p>
-                    </div>
-                    
-                    <!-- Education -->
-                    <div class="cv-section">
-                        <h2 class="cv-section-title">
-                            <i class="fas fa-graduation-cap"></i> Education
-                        </h2>
-                        
-                        <div class="cv-item">
-                            <div class="cv-item-header">
-                                <h3 class="cv-item-title">MSc Data Science</h3>
-                                <span class="cv-item-date">2024 — 2025</span>
-                            </div>
-                            <p class="cv-item-subtitle">London School of Economics and Political Science (LSE)</p>
-                        </div>
-                        
-                        <div class="cv-item">
-                            <div class="cv-item-header">
-                                <h3 class="cv-item-title">BSc Data Science and Business Analytics</h3>
-                                <span class="cv-item-date">Sep 2021 — Aug 2024</span>
-                            </div>
-                            <p class="cv-item-subtitle">University of London — Dual Degree Programme</p>
-                        </div>
-                        
-                        <div class="cv-item">
-                            <div class="cv-item-header">
-                                <h3 class="cv-item-title">BSc Applied Mathematics and Information Science</h3>
-                                <span class="cv-item-date">2020 — 2024</span>
-                            </div>
-                            <p class="cv-item-subtitle">Higher School of Economics (HSE), Moscow</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Experience -->
-                    <div class="cv-section">
-                        <h2 class="cv-section-title">
-                            <i class="fas fa-briefcase"></i> Professional Experience
-                        </h2>
-                        
-                        <div class="cv-item">
-                            <div class="cv-item-header">
-                                <h3 class="cv-item-title">Treasury Analyst — Short-Term Liquidity</h3>
-                                <span class="cv-item-date">Jan 2025 — Oct 2025</span>
-                            </div>
-                            <p class="cv-item-subtitle">BCS Investment Bank, Moscow</p>
-                            <div class="cv-item-description">
-                                <ul>
-                                    <li>Maintained and developed SQL database (T-SQL/SSMS): wrote functions, stored procedures, and queries integrated with Excel reporting</li>
-                                    <li>Built and maintained interactive Tableau dashboards for real-time liquidity monitoring</li>
-                                    <li>Contributed to "Positioner" microservice development: wrote business and functional requirements, tested via GitLab CI/CD and API endpoints</li>
-                                    <li>Supported and enhanced VBA-based Excel tools for treasury operations</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="cv-item">
-                            <div class="cv-item-header">
-                                <h3 class="cv-item-title">Data Analytics Intern</h3>
-                                <span class="cv-item-date">2022</span>
-                            </div>
-                            <p class="cv-item-subtitle">Sberbank, Moscow</p>
-                            <div class="cv-item-description">
-                                <ul>
-                                    <li>Analyzed consumer purchasing behavior using statistical methods</li>
-                                    <li>Developed data processing pipelines in Python for large-scale retail datasets</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Teaching -->
-                    <div class="cv-section">
-                        <h2 class="cv-section-title">
-                            <i class="fas fa-chalkboard-teacher"></i> Teaching Experience
-                        </h2>
-                        
-                        <div class="cv-item">
-                            <div class="cv-item-header">
-                                <h3 class="cv-item-title">Teaching Assistant — Machine Learning & Deep Learning</h3>
-                                <span class="cv-item-date">2024 — 2025</span>
-                            </div>
-                            <p class="cv-item-subtitle">HSE University</p>
-                        </div>
-                        
-                        <div class="cv-item">
-                            <div class="cv-item-header">
-                                <h3 class="cv-item-title">Teaching Assistant — Mathematical Analysis</h3>
-                                <span class="cv-item-date">2021 — 2024</span>
-                            </div>
-                            <p class="cv-item-subtitle">HSE University</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Skills -->
-                    <div class="cv-section">
-                        <h2 class="cv-section-title">
-                            <i class="fas fa-code"></i> Technical Skills
-                        </h2>
-                        
-                        <div class="skills-grid" style="margin-top: var(--space-md);">
-                            <div class="skill-category">
-                                <h3>// Programming</h3>
-                                <div class="skill-tags">
-                                    <span class="skill-tag">Python</span>
-                                    <span class="skill-tag">SQL (T-SQL)</span>
-                                    <span class="skill-tag">R</span>
-                                    <span class="skill-tag">VBA</span>
-                                </div>
-                            </div>
-                            
-                            <div class="skill-category">
-                                <h3>// Python Libraries</h3>
-                                <div class="skill-tags">
-                                    <span class="skill-tag">Pandas</span>
-                                    <span class="skill-tag">NumPy</span>
-                                    <span class="skill-tag">Scikit-learn</span>
-                                    <span class="skill-tag">PyTorch</span>
-                                    <span class="skill-tag">TensorFlow</span>
-                                    <span class="skill-tag">Keras</span>
-                                    <span class="skill-tag">NetworkX</span>
-                                    <span class="skill-tag">spaCy</span>
-                                </div>
-                            </div>
-                            
-                            <div class="skill-category">
-                                <h3>// Data & ML</h3>
-                                <div class="skill-tags">
-                                    <span class="skill-tag">Machine Learning</span>
-                                    <span class="skill-tag">Deep Learning</span>
-                                    <span class="skill-tag">NLP</span>
-                                    <span class="skill-tag">Recommender Systems</span>
-                                    <span class="skill-tag">Statistical Modelling</span>
-                                </div>
-                            </div>
-                            
-                            <div class="skill-category">
-                                <h3>// Tools</h3>
-                                <div class="skill-tags">
-                                    <span class="skill-tag">Tableau</span>
-                                    <span class="skill-tag">GitLab</span>
-                                    <span class="skill-tag">SSMS</span>
-                                    <span class="skill-tag">Jupyter</span>
-                                    <span class="skill-tag">Excel (Advanced)</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Languages -->
-                    <div class="cv-section">
-                        <h2 class="cv-section-title">
-                            <i class="fas fa-language"></i> Languages
-                        </h2>
-                        
-                        <div class="skill-tags" style="margin-top: var(--space-md);">
-                            <span class="skill-tag">Russian — Native</span>
-                            <span class="skill-tag">English — C1 Fluent</span>
-                            <span class="skill-tag">German — Basic</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Contact -->
-                    <div class="cv-section">
-                        <h2 class="cv-section-title">
-                            <i class="fas fa-address-card"></i> Contact
-                        </h2>
-                        
-                        <div style="margin-top: var(--space-md);">
-                            <p style="color: var(--text-secondary); margin-bottom: var(--space-xs);">
-                                <i class="fas fa-map-marker-alt" style="color: var(--accent-primary); margin-right: var(--space-xs); width: 20px;"></i>
-                                London, United Kingdom • Eligible for Graduate Visa
-                            </p>
-                            <p style="color: var(--text-secondary); margin-bottom: var(--space-xs);">
-                                <i class="fas fa-envelope" style="color: var(--accent-primary); margin-right: var(--space-xs); width: 20px;"></i>
-                                <a href="/cdn-cgi/l/email-protection#9eeeecf1f5f6f1ecf1e8fffff0ffedeaffedf7f7ffaeafdef9f3fff7f2b0fdf1f3"><span class="__cf_email__" data-cfemail="a9d9dbc6c2c1c6dbc6dfc8c8c7c8daddc8dac0c0c89998e9cec4c8c0c587cac6c4">[email&#160;protected]</span></a>
-                            </p>
-                            <p style="color: var(--text-secondary); margin-bottom: var(--space-xs);">
-                                <i class="fab fa-linkedin" style="color: var(--accent-primary); margin-right: var(--space-xs); width: 20px;"></i>
-                                <a href="https://linkedin.com/in/anastation67" target="_blank">linkedin.com/in/anastation67</a>
-                            </p>
-                            <p style="color: var(--text-secondary);">
-                                <i class="fab fa-github" style="color: var(--accent-primary); margin-right: var(--space-xs); width: 20px;"></i>
-                                <a href="https://github.com/Anastation67" target="_blank">github.com/Anastation67</a>
-                            </p>
-                        </div>
+                    <div class="cv-item">
+                        <div class="cv-item-header"><h3 class="cv-item-title">Data Analytics Intern</h3><span class="cv-item-date">2022</span></div>
+                        <p class="cv-item-subtitle">Sberbank, Moscow</p>
+                        <div class="cv-item-description"><ul>
+                            <li>Analyzed consumer purchasing behavior using statistical methods</li>
+                            <li>Developed Python data processing pipelines</li>
+                        </ul></div>
                     </div>
                 </div>
-            </section>
-        </div>
+                
+                <div style="margin-bottom: var(--space-xl);">
+                    <h2 class="cv-section-title"><i class="fas fa-chalkboard-teacher"></i> Teaching</h2>
+                    <div class="cv-item">
+                        <div class="cv-item-header"><h3 class="cv-item-title">Teaching Assistant — ML & Deep Learning</h3><span class="cv-item-date">2024 — 2025</span></div>
+                        <p class="cv-item-subtitle">HSE University</p>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-item-header"><h3 class="cv-item-title">Teaching Assistant — Mathematical Analysis</h3><span class="cv-item-date">2021 — 2024</span></div>
+                        <p class="cv-item-subtitle">HSE University</p>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: var(--space-xl);">
+                    <h2 class="cv-section-title"><i class="fas fa-code"></i> Skills</h2>
+                    <div class="skills-grid" style="margin-top: var(--space-md);">
+                        <div class="skill-category"><h3>// Programming</h3><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">SQL (T-SQL)</span><span class="skill-tag">R</span><span class="skill-tag">VBA</span></div></div>
+                        <div class="skill-category"><h3>// Libraries</h3><div class="skill-tags"><span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Keras</span><span class="skill-tag">spaCy</span></div></div>
+                        <div class="skill-category"><h3>// ML Areas</h3><div class="skill-tags"><span class="skill-tag">Machine Learning</span><span class="skill-tag">Deep Learning</span><span class="skill-tag">NLP</span><span class="skill-tag">Recommender Systems</span></div></div>
+                        <div class="skill-category"><h3>// Tools</h3><div class="skill-tags"><span class="skill-tag">Tableau</span><span class="skill-tag">GitLab</span><span class="skill-tag">SSMS</span><span class="skill-tag">Jupyter</span></div></div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: var(--space-xl);">
+                    <h2 class="cv-section-title"><i class="fas fa-language"></i> Languages</h2>
+                    <div class="skill-tags" style="margin-top: var(--space-md);"><span class="skill-tag">Russian — Native</span><span class="skill-tag">English — C1 Fluent</span><span class="skill-tag">German — Basic</span></div>
+                </div>
+                
+                <div>
+                    <h2 class="cv-section-title"><i class="fas fa-address-card"></i> Contact</h2>
+                    <div style="margin-top: var(--space-md);">
+                        <p style="color: var(--text-secondary); margin-bottom: var(--space-xs);"><i class="fas fa-map-marker-alt" style="color: var(--accent-primary); margin-right: var(--space-xs); width: 20px;"></i>London, UK • Eligible for Graduate Visa</p>
+                        <p style="color: var(--text-secondary); margin-bottom: var(--space-xs);"><i class="fas fa-envelope" style="color: var(--accent-primary); margin-right: var(--space-xs); width: 20px;"></i><a href="mailto:prokhorovaanastasiia01@gmail.com">prokhorovaanastasiia01@gmail.com</a></p>
+                        <p style="color: var(--text-secondary); margin-bottom: var(--space-xs);"><i class="fab fa-linkedin" style="color: var(--accent-primary); margin-right: var(--space-xs); width: 20px;"></i><a href="https://linkedin.com/in/anastation67" target="_blank">linkedin.com/in/anastation67</a></p>
+                        <p style="color: var(--text-secondary);"><i class="fab fa-github" style="color: var(--accent-primary); margin-right: var(--space-xs); width: 20px;"></i><a href="https://github.com/Anastation67" target="_blank">github.com/Anastation67</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </main>
 
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-links">
-                <a href="/cdn-cgi/l/email-protection#7101031e1a191e031e0710101f1002051002181810414031161c10181d5f121e1c" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://github.com/Anastation67" target="_blank" rel="noopener" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://linkedin.com/in/anastation67" target="_blank" rel="noopener" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
+                <a href="mailto:prokhorovaanastasiia01@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/Anastation67" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/anastation67" target="_blank"><i class="fab fa-linkedin"></i></a>
             </div>
             <p class="footer-text">© 2025 Anastasiia Prokhorova</p>
         </div>
     </footer>
-
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        function showPage(pageId) {
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            // Show selected page
-            document.getElementById(pageId).classList.add('active');
-            
-            // Update nav links
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-                if (link.dataset.page === pageId) {
-                    link.classList.add('active');
-                }
-            });
-            
-            // Close mobile nav if open
-            document.querySelector('.nav-links').classList.remove('active');
-            document.querySelector('.nav-toggle
+</body>
+</html>
